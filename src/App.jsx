@@ -24,15 +24,15 @@ function App() {
       })
       // console.log(count)
       const remainingHours = 20 - count;
-      if(count>20){
+      if (count > 20 || count < 0) {
         return alert('Time limited is over')
-      }else{
+      } else {
         setTotalExpenseHour(count);
         setRemaining(remainingHours)
         const newSelectedCard = [...selectedCard, card];
         setSelectedCard(newSelectedCard);
       }
-      
+
     }
 
 
@@ -45,7 +45,7 @@ function App() {
       <div className='md:flex justify-between'>
         <Home handleSelectedCard={handleSelectedCard}></Home>
         <Carts selectedCard={selectedCard} remaining={remaining} totalExpenseHour={totalExpenseHour}></Carts>
-        
+
       </div>
 
     </div>
