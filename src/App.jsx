@@ -8,20 +8,34 @@ import Carts from './components/Carts/Carts'
 
 function App() {
   const [selectedCard, setSelectedCard] = useState([]);
-  
+  const [remaining, setRemaining] = useState(0);
+  const [totalExpenseHour, setTotalExpenseHour] = useState(0)
+
 
   const handleSelectedCard = (card) => {
-    const isExist = selectedCard.find(item => item.id ===card.id);
+    const isExist = selectedCard.find(item => item.id === card.id);
+    let count = card.credit_time_hours;
+
     if (isExist) {
       return alert('Already showed')
     } else {
+      selectedCard.forEach(item => {
+        count = count + item.credit_time_hours;
+      })
+      // console.log(count)
+      const remainingHours = 20 - count;
+      if(count>20){
+        return alert('Time limited is over')
+      }else{
+        setTotalExpenseHour(count);
+        setRemaining(remainingHours)
+        const newSelectedCard = [...selectedCard, card];
+        setSelectedCard(newSelectedCard);
+      }
       
-      
-      const newSelectedCard = [...selectedCard, card];
-      setSelectedCard(newSelectedCard);
     }
-    
-    
+
+
   }
 
 
@@ -30,7 +44,8 @@ function App() {
       <Header></Header>
       <div className='md:flex justify-between'>
         <Home handleSelectedCard={handleSelectedCard}></Home>
-        <Carts selectedCard={selectedCard}></Carts>
+        <Carts selectedCard={selectedCard} remaining={remaining} totalExpenseHour={totalExpenseHour}></Carts>
+        
       </div>
 
     </div>
