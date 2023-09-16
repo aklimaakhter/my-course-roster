@@ -11,14 +11,17 @@ function App() {
   const [cards, setCards] = useState([]);
 
   const handleSelectedCard = (card) => {
-    const isExist = cards.find(item => item.id === card.id);
-    if (isExist) {
-      return alert('Already showed')
-    } else {
-      const newSelectedCard = [...selectedCard, card];
-      setSelectedCard(newSelectedCard)
-    }
+    // const isExist = cards.find(item => item.id ===card.id);
+    // if (isExist) {
+    //   return alert('Already showed')
+    // } else {
+      
+    //   setCards(...cards, card);
 
+    // }
+    
+    const newSelectedCard = [...selectedCard, card];
+    setSelectedCard(newSelectedCard);
   }
 
 
