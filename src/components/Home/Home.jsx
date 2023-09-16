@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import PropTypes from 'prop-types';
 
 
-const Home = () => {
+const Home = ({handleSelectedCard}) => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
@@ -18,10 +20,14 @@ const Home = () => {
             {
                 cards.map(card => <Card
                     key={card.id}
-                    card={card}></Card>)
+                    card={card}
+                    handleSelectedCard={handleSelectedCard}
+                    ></Card>)
             }
         </div>
     );
 };
-
+Home.propTypes ={
+    home:PropTypes.func
+}
 export default Home;
