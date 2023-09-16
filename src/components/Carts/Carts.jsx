@@ -6,7 +6,7 @@ import Cart from '../Cart/Cart';
 const Carts = ({ selectedCard, remaining, totalExpenseHour }) => {
 
     return (
-        <div className='w-1/4 ml-8 bg-white p-2'>
+        <div className='w-1/4 ml-8 bg-white p-2 rounded-lg'>
             <div>
                 <h4 className="text-indigo-500 font-bold border-b-2 p-4">Credit Hour Remaining {remaining} hr </h4>
                 
@@ -18,8 +18,8 @@ const Carts = ({ selectedCard, remaining, totalExpenseHour }) => {
                     ></Cart>)
                 }
             </div>
-            <div className='my-4'>
-            <h4 className='font-semibold border-t-2'>Total Expense Time : {totalExpenseHour}</h4>
+            <div className='mt-2'>
+            <h4 className='font-semibold border-t-2 p-4'>Total Expense Time : {totalExpenseHour}</h4>
             </div>
         </div>
     );
